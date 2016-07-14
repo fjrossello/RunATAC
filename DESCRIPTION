@@ -1,9 +1,9 @@
-Package: test
+Package: RunATAC
 Type: Package
-Title: What the Package Does (Title Case)
+Title: An R Package for Processing and Plotting ATAC-seq Data
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Sam Buckberry
+Maintainer: Sam Buckberry <sambuckberry@gmail.com>
+Description: RunATAC contains functions for importing aligned ATAC-seq data, performing QC, generating plots, low-level analyses, and exporting data in a wide variety of formats.
+License: MIT + file LICENCE
 LazyData: TRUE
