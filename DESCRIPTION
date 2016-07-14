@@ -1,9 +1,22 @@
 Package: RunATAC
 Type: Package
-Title: RunATAC: R Functions for Importing, Processing, Plotting and Exporting ATAC-seq Data
+Title: Functions for Importing, Processing, Analyzing, Plotting and Reformatting
+    ATAC-seq Data
 Version: 0.1.0
 Author: Sam Buckberry
 Maintainer: Sam Buckberry <sambuckberry@gmail.com>
-Description: RunATAC contains functions for importing aligned ATAC-seq data, performing QC, generating plots, low-level analyses, and exporting data in a wide variety of formats.
+Description: RunATAC contains functions for importing aligned ATAC-seq data,
+    performing QC, generating plots, low-level analyses, and exporting data in a
+    wide variety of formats.
 License: MIT + file LICENCE
 LazyData: TRUE
+Imports:
+    magrittr,
+    Biostrings,
+    motifRG,
+    data.table,
+    GenomicRanges,
+    IRanges,
+    GenomicAlignments,
+    rtracklayer
+RoxygenNote: 5.0.1
