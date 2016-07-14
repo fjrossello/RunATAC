@@ -1,6 +1,6 @@
 Package: RunATAC
 Type: Package
-Title: An R Package for Processing and Plotting ATAC-seq Data
+Title: RunATAC: R Functions for Importing, Processing, Plotting and Exporting ATAC-seq Data
 Version: 0.1.0
 Author: Sam Buckberry
 Maintainer: Sam Buckberry <sambuckberry@gmail.com>
