@@ -4,12 +4,12 @@
 \alias{write_insertions_bw}
 \title{Write a bigwig file of Tn5 insertion depth}
 \usage{
-write_insertions_bw(gr, out_file, scale_cpm = FALSE)
+write_insertions_bw(gr, file, scale_cpm = FALSE)
 }
 \arguments{
 \item{gr}{A GRanges object containing nucleosome positions.}
 
-\item{out_file}{Path for output bigwig file. Extension should be .bw or .bigwig.}
+\item{file}{Path for output bigwig file. Extension should be .bw or .bigwig.}
 
 \item{scale_cpm}{Logical. Should the output be scaled to number of 
 nucleosome spanning reads.}

@@ -4,12 +4,12 @@
 \alias{write_nuc_bw}
 \title{Write bigwig file of nucleosome depth}
 \usage{
-write_nuc_bw(gr, out_file, scale_cpm = FALSE, nuc_span_size = c(180, 247))
+write_nuc_bw(gr, file, scale_cpm = FALSE, nuc_span_size = c(180, 247))
 }
 \arguments{
 \item{gr}{A GRanges object containing nucleosome positions.}
 
-\item{out_file}{Path for output bigwig file. Extension should be .bw or .bigwig.}
+\item{file}{Path for output bigwig file. Extension should be .bw or .bigwig.}
 
 \item{scale_cpm}{Logical. Should the output be scaled to number of 
 nucleosome spanning reads.}
