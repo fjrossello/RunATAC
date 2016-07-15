@@ -27,19 +27,19 @@ gr_centre_motif <- function(gr, pwm, bs_genome, min.score="85%"){
                 stop("pwm is not correctly formated")
         }
         
-        sequences <- getSequence(gr = gr, bs_genome = genome)
+        sequences <- motifRG::getSequence(gr = gr, bs_genome = genome)
         
         # Function to find motif in one sequence
         find_motif_start <- function(x)
         {
-                motif_starts <- matchPWM(pwm = pwm, subject = sequences[[x]],
+                motif_starts <- Biostrings::matchPWM(pwm = pwm, subject = sequences[[x]],
                                          min.score = min.score) %>% start()
                 starts <- start(gr[x]) + motif_starts
                 if (length(starts) == 0){
                         out <- NULL
                 } else {
                         ends <- starts + ncol(pwm)
-                        out <- GRanges(seqnames = seqnames(gr[x]),
+                        out <- GenomicRanges::GRanges(seqnames = seqnames(gr[x]),
                                        ranges = IRanges(start = starts,
                                                         end = ends))
                 }

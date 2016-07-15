@@ -9,7 +9,7 @@
 #' @note Only imports the first 3 columns of a bed file.
 #' @export
 read_bed <- function(bed_file){
-        dat <- fread(bed_file, sep = "\t", header = FALSE)
+        dat <- data.table::fread(bed_file, sep = "\t", header = FALSE)
         gr <- GenomicRanges::GRanges(seqnames = dat$V1,
                       ranges = IRanges(start = dat$V2,
                                        end = dat$V3))
@@ -50,17 +50,17 @@ read_atac_frags <- function(bam_file, max_insert_size=2000){
 #' @export
 read_atac_pos <- function(bam_file){
         
-        tn <- readGAlignments(file = bam_file) %>% GRanges()
+        tn <- GenomicAlignments::readGAlignments(file = bam_file) %>% GRanges()
         
         # Offset the reads to correspond to tn5 insertion site
         pos <- tn[strand(tn) == "+"] %>% 
                 GenomicRanges::shift(shift=4) %>%
-                resize(width = 2, fix = "start")
+                GenomicRanges::resize(width = 2, fix = "start")
         strand(pos) <- "*"
         
         neg <- tn[strand(tn) == "-"] %>%
                 GenomicRanges::shift(shift = -5) %>%
-                resize(width = 2, fix = "start")
+                GenomicRanges::resize(width = 2, fix = "start")
         strand(neg) <- "*"
 
         return(c(pos, neg))
