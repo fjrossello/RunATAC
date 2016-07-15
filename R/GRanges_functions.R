@@ -7,6 +7,9 @@
 #' @return A GRanges object. Ranges are of width=2, 
 #' which are the centre of the PWM alignment.
 #' @export
+#' @importFrom magrittr %>%
+#' @import GenomicRanges
+#' @import IRanges
 #' @examples
 #' \dontrun{
 #' library(BSgenome.Mmusculus.UCSC.mm10)
@@ -27,7 +30,7 @@ gr_centre_motif <- function(gr, pwm, bs_genome, min.score="85%"){
                 stop("pwm is not correctly formated")
         }
         
-        sequences <- motifRG::getSequence(gr = gr, bs_genome = genome)
+        sequences <- motifRG::getSequence(gr = gr, bs_genome = bs_genome)
         
         # Function to find motif in one sequence
         find_motif_start <- function(x)

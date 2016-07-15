@@ -20,18 +20,18 @@ read_bed <- function(bed_file){
 #' Read BAM file aligned fragments into GRanges object
 #' 
 #' @param bam_file Path to a BAM formatted file.
-#' @param max_insert_size Maximum insert size allowed. Default is reccomended.
+#' @param max_insert Maximum insert size allowed. Default is reccomended.
 #' @return A GRanges object of aligned fragments
 #' @export
-read_atac_frags <- function(bam_file, max_insert_size=2000){
+read_atac_frags <- function(bam_file, max_insert=2000){
         
         # Check inputs
-        if (class(nuc_frag_size) != "numeric" | length(nuc_frag_size) !=2){
-                stop("nuc_frag_size is not numeric!")
+        if (class(max_insert) != "numeric") {
+                stop("max_insert_size is not numeric!")
         }
         
         # Read the bam file pairs to GRanges object
-        gr <- GenomicRanges::readGAlignmentPairs(file = bam_file) %>% GRanges()
+        gr <- GenomicAlignments::readGAlignmentPairs(file = bam_file) %>% GRanges()
         
         # Remove pairs with inserts larger than 2000 bases
         gr <- gr[width(gr) <= max_insert]

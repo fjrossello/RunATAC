@@ -4,12 +4,12 @@
 \alias{read_atac_frags}
 \title{Read BAM file aligned fragments into GRanges object}
 \usage{
-read_atac_frags(bam_file, max_insert_size = 2000)
+read_atac_frags(bam_file, max_insert = 2000)
 }
 \arguments{
 \item{bam_file}{Path to a BAM formatted file.}
 
-\item{max_insert_size}{Maximum insert size allowed. Default is reccomended.}
+\item{max_insert}{Maximum insert size allowed. Default is reccomended.}
 }
 \value{
 A GRanges object of aligned fragments
