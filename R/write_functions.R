@@ -1,12 +1,12 @@
 #' Write bigwig file of nucleosome depth
 #'
 #' @param gr A GRanges object containing nucleosome positions.
-#' @param out_file Path for output bigwig file. Extension should be .bw or .bigwig.
+#' @param file Path for output bigwig file. Extension should be .bw or .bigwig.
 #' @param scale_cpm Logical. Should the output be scaled to number of 
 #' nucleosome spanning reads.
 #' @param nuc_span_size Numeric of length 2 specifying the insert size 
 #' of nucleosome spanning fragnemts.
-write_nuc_bw <- function(gr, out_file, scale_cpm=FALSE, nuc_span_size=c(180, 247)){
+write_nuc_bw <- function(gr, file, scale_cpm=FALSE, nuc_span_size=c(180, 247)){
         
         # Get the fragment size and select only those of mononucleosome spanning size
         frag_widths <- IRanges::width(gr)
@@ -25,16 +25,16 @@ write_nuc_bw <- function(gr, out_file, scale_cpm=FALSE, nuc_span_size=c(180, 247
         }
         
         # write bigwig file
-        rtracklayer::export.bw(object = nuc_cov, con = out_file)
+        rtracklayer::export.bw(object = nuc_cov, con = file)
 }
 
 #' Write a bigwig file of Tn5 insertion depth
 #' 
 #' @param gr A GRanges object containing nucleosome positions.
-#' @param out_file Path for output bigwig file. Extension should be .bw or .bigwig.
+#' @param file Path for output bigwig file. Extension should be .bw or .bigwig.
 #' @param scale_cpm Logical. Should the output be scaled to number of 
 #' nucleosome spanning reads.
-write_insertions_bw <- function(gr, out_file, scale_cpm=FALSE){
+write_insertions_bw <- function(gr, file, scale_cpm=FALSE){
         
         # Calculate Tn insertion coverage
         cov <- IRanges::coverage(gr)
@@ -45,7 +45,16 @@ write_insertions_bw <- function(gr, out_file, scale_cpm=FALSE){
         }
         
         # write Tn5 insertion bigwig
-        rtracklayer::export.bw(object = cov, con = out_file)
+        rtracklayer::export.bw(object = cov, con = file)
 } 
 
-
+#' Write ranges in a GenomicRanges object to a BED file
+#' 
+#' @param gr A GRanges object.
+#' @param file Path for output bed file.
+#' 
+write_gr_bed <- function(gr, file){
+        dat <- as.data.frame(gr)
+        write.table(dat[ ,1:3], file = file, quote = FALSE,
+                    sep = "\t", row.names = FALSE, col.names = FALSE)
+}
