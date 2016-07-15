@@ -6,6 +6,7 @@
 #' @param min.score Character. Minimum alignment score percentage for the PWM.
 #' @return A GRanges object. Ranges are of width=2, 
 #' which are the centre of the PWM alignment.
+#' @export
 #' @examples
 #' \dontrun{
 #' library(BSgenome.Mmusculus.UCSC.mm10)

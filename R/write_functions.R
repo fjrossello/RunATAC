@@ -6,6 +6,7 @@
 #' nucleosome spanning reads.
 #' @param nuc_span_size Numeric of length 2 specifying the insert size 
 #' of nucleosome spanning fragnemts.
+#' @export
 write_nuc_bw <- function(gr, file, scale_cpm=FALSE, nuc_span_size=c(180, 247)){
         
         # Get the fragment size and select only those of mononucleosome spanning size
@@ -34,6 +35,7 @@ write_nuc_bw <- function(gr, file, scale_cpm=FALSE, nuc_span_size=c(180, 247)){
 #' @param file Path for output bigwig file. Extension should be .bw or .bigwig.
 #' @param scale_cpm Logical. Should the output be scaled to number of 
 #' nucleosome spanning reads.
+#' @export
 write_insertions_bw <- function(gr, file, scale_cpm=FALSE){
         
         # Calculate Tn insertion coverage
@@ -52,7 +54,7 @@ write_insertions_bw <- function(gr, file, scale_cpm=FALSE){
 #' 
 #' @param gr A GRanges object.
 #' @param file Path for output bed file.
-#' 
+#' @export
 write_gr_bed <- function(gr, file){
         dat <- as.data.frame(gr)
         write.table(dat[ ,1:3], file = file, quote = FALSE,

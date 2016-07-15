@@ -19,7 +19,6 @@ Read BED formatted file to GRanges object
 Only imports the first 3 columns of a bed file.
 }
 \examples{
-
 \dontrun{
 import_bed("myBedFile.bed")
 }
