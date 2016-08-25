@@ -56,12 +56,12 @@ read_atac_pos <- function(bam_file){
         pos <- tn[strand(tn) == "+"] %>% 
                 GenomicRanges::shift(shift=4) %>%
                 GenomicRanges::resize(width = 2, fix = "start")
-        strand(pos) <- "*"
+        #strand(pos) <- "*"
         
         neg <- tn[strand(tn) == "-"] %>%
                 GenomicRanges::shift(shift = -5) %>%
                 GenomicRanges::resize(width = 2, fix = "start")
-        strand(neg) <- "*"
+        #strand(neg) <- "*"
 
         return(c(pos, neg))
 }
