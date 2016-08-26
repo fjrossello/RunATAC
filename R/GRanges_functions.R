@@ -64,4 +64,3 @@ gr_centre_motif <- function(gr, pwm, bs_genome, min.score="85%"){
         return(motif_ranges)
 }
 
-

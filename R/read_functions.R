@@ -31,7 +31,8 @@ read_atac_frags <- function(bam_file, max_insert=2000){
         }
         
         # Read the bam file pairs to GRanges object
-        gr <- GenomicAlignments::readGAlignmentPairs(file = bam_file) %>% GRanges()
+        gr <- GenomicAlignments::readGAlignmentPairs(file = bam_file)
+        gr <- GenomicRanges::GRanges(gr)
         
         # Remove pairs with inserts larger than 2000 bases
         gr <- gr[width(gr) <= max_insert]
@@ -65,4 +66,5 @@ read_atac_pos <- function(bam_file){
 
         return(c(pos, neg))
 }
+
 

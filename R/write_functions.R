@@ -54,9 +54,19 @@ write_insertions_bw <- function(gr, file, scale_cpm=FALSE){
 #' 
 #' @param gr A GRanges object.
 #' @param file Path for output bed file.
+#' @param score An vector of scores for bed file.
+#' @param name An optional vector of names for bed file.
 #' @export
-write_gr_bed <- function(gr, file){
-        dat <- as.data.frame(gr)
-        write.table(dat[ ,1:3], file = file, quote = FALSE,
+write_gr_bed <- function(gr, file, score="0", name="."){
+        dat <- as.data.frame(gr)[ ,c(1:3,5)]
+        dat$score <- score
+        dat$name <- name
+        dat <- dat[ ,c(1,2,3,6,5,4)]
+        write.table(dat, file = file, quote = FALSE,
                     sep = "\t", row.names = FALSE, col.names = FALSE)
+}
+
+write_offset_bed <- function(gr, file, width=50){
+        gr <- GenomicRanges::resize(x = gr, width = 50, fix = "center")
+        
 }

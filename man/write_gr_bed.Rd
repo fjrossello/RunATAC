@@ -4,12 +4,16 @@
 \alias{write_gr_bed}
 \title{Write ranges in a GenomicRanges object to a BED file}
 \usage{
-write_gr_bed(gr, file)
+write_gr_bed(gr, file, score = "0", name = ".")
 }
 \arguments{
 \item{gr}{A GRanges object.}
 
 \item{file}{Path for output bed file.}
+
+\item{score}{An vector of scores for bed file.}
+
+\item{name}{An optional vector of names for bed file.}
 }
 \description{
 Write ranges in a GenomicRanges object to a BED file
