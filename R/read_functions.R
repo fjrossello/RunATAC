@@ -51,7 +51,8 @@ read_atac_frags <- function(bam_file, max_insert=2000){
 #' @export
 read_atac_pos <- function(bam_file){
         
-        tn <- GenomicAlignments::readGAlignments(file = bam_file) %>% GRanges()
+        tn <- GenomicAlignments::readGAlignments(file = bam_file) %>%
+                GRanges()
         
         # Offset the reads to correspond to tn5 insertion site
         pos <- tn[strand(tn) == "+"] %>% 
